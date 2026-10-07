@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { BrandPageLayout } from '../components/BrandPageLayout';
+import { BRAND_PAGES_DATA } from '../data/content';
+
+// 👇 Homepage ke liye 'ro-service-24x7' wala data uthao
+const genericBrand = BRAND_PAGES_DATA['ro-service-24x7'];
+
+if (!genericBrand) {
+  return Astro.redirect('/kent-service'); // Agar generic data na mile toh Kent pe bhej do
+}
+---
+
+<Layout title="RO Service Center Online 24x7 | Bangalore">
+  <BrandPageLayout brand={genericBrand} client:load />
+</Layout>
